@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2015/03/06 14:13:02.469.dproj,V:\Desenv\delphi\Delphi-Project-Manager\source\Gerenciador.dproj=V:\Desenv\delphi\Delphi-Project-Manager\source\DelphiProjectManager.dproj</Transaction>
+    <Transaction>2015/03/06 14:13:33.398.pas,V:\Desenv\delphi\Delphi-Project-Manager\source\uGerenciador.pas=V:\Desenv\delphi\Delphi-Project-Manager\source\udpmMainForm.pas</Transaction>
+    <Transaction>2015/03/06 14:13:33.398.dfm,V:\Desenv\delphi\Delphi-Project-Manager\source\uGerenciador.dfm=V:\Desenv\delphi\Delphi-Project-Manager\source\udpmMainForm.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
