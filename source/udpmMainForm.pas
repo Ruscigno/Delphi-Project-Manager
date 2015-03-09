@@ -120,7 +120,7 @@ type
     sOldPath        : string;
     bOldAutoStart   : boolean;
 
-    procedure controlaBotoes;
+    procedure EnableButtons;
     procedure atualizaRegistro;
     function descobreMaiorCdPath: integer;
     function descobreMenorCdPath: integer;
@@ -149,7 +149,7 @@ type
     function Subst(pDiretorio: string): boolean;
     procedure ConfiguraDelphi;
     procedure abreDataSets;
-    procedure SalvarDados;
+    procedure SaveData;
     function getVersaoAplicativo: string;
   public
     { Public declarations }
@@ -317,7 +317,7 @@ end;
 
 procedure TfdpmMainForm.pbSalvarClick(Sender: TObject);
 begin
-  SalvarDados;
+  SaveData;
 end;
 
 procedure TfdpmMainForm.pbNovoClick(Sender: TObject);
@@ -353,16 +353,16 @@ begin
       cdsLibrary.delete;
 
     cdsProjects.Delete;
-    controlaBotoes;
+    EnableButtons;
   end;
 end;
 
-procedure TfdpmMainForm.controlaBotoes;
+procedure TfdpmMainForm.EnableButtons;
 begin
-  pbSalvar.enabled    := cdsProjects.active and
+  pbSalvar.enabled    := True{cdsProjects.active and
                          ((cdsProjects.ChangeCount > 0) or
                           (cdsBPL.ChangeCount > 0) or
-                          (cdsLibrary.ChangeCount > 0));
+                          (cdsLibrary.ChangeCount > 0))};
   pbNovo.enabled      := cdsProjects.active and (cdsProjects.State = dsBrowse);
   pbExcluir.enabled   := cdsProjects.active and
                          (cdsProjects.recordCount > 0) and
@@ -386,7 +386,7 @@ end;
 
 procedure TfdpmMainForm.dsProjetosStateChange(Sender: TObject);
 begin
-  controlaBotoes;
+  EnableButtons;
 end;
 
 procedure TfdpmMainForm.cdsProjectsBeforePost(DataSet: TDataSet);
@@ -820,7 +820,7 @@ end;
 
 procedure TfdpmMainForm.cdsProjectsAfterScroll(DataSet: TDataSet);
 begin
-  controlaBotoes;
+  EnableButtons;
 end;
 
 procedure TfdpmMainForm.pbIncluirPathClick(Sender: TObject);
@@ -835,7 +835,7 @@ begin
        mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
     cdsPath.delete;
-    controlaBotoes;
+    EnableButtons;
   end;
 end;
 
@@ -851,7 +851,7 @@ begin
        mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
     cdsBPL.delete;
-    controlaBotoes;
+    EnableButtons;
   end;
 end;
 
@@ -867,7 +867,7 @@ begin
        mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
     cdsLibrary.delete;
-    controlaBotoes;
+    EnableButtons;
   end;
 end;
 
@@ -1410,7 +1410,7 @@ begin
         sAUX := edPathDAT.text;
         try
           edPathDAT.text := sOldPath;
-          SalvarDados;
+          SaveData;
         finally
           edPathDAT.text := sAUX;
         end;
@@ -1449,7 +1449,7 @@ begin
     if (trim (sOldPath) <> trim (edPathDAT.text)) and
        (messageDLG ('Deseja salvar os dados na nova pasta?', mtConfirmation,
         [mbYes, mbNo], 0) = mrYes) then
-      SalvarDados;
+      SaveData;
 
     sOldPath      := trim (edPathDAT.text);
     bOldAutoStart := cbAutoStart.checked;
@@ -1518,10 +1518,10 @@ begin
   cdsPath.MergeChangeLog;
   cdsPath.CancelUpdates;
 
-  controlaBotoes;
+  EnableButtons;
 end;
 
-procedure TfdpmMainForm.SalvarDados;
+procedure TfdpmMainForm.SaveData;
 begin
   cdsProjects.MergeChangeLog;
   cdsProjects.CancelUpdates;
@@ -1544,7 +1544,7 @@ begin
   if cdsPath.recordCount > 0 then
     cdsPath.SaveToFile (IncludeTrailingPathDelimiter (edPathDAT.text) + 'cdsPath.cds', dfXML);
 
-  controlaBotoes;
+  EnableButtons;
 end;
 
 procedure TfdpmMainForm.pbSetarDriveClick(Sender: TObject);
