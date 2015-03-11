@@ -2,7 +2,7 @@ program DelphiProjectManager;
 
 uses
   Forms,
-  udpmMainForm in 'udpmMainForm.pas' {fdpmMainForm};
+  udpmMainForm in '..\udpmMainForm.pas' {fdpmMainForm};
 
 {$R *.RES}
 
