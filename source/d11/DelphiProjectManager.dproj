@@ -1,11 +1,12 @@
-﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectGuid>{80350be1-933e-461e-87ec-5aa41bcc612b}</ProjectGuid>
     <MainSource>DelphiProjectManager.dpr</MainSource>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
-    <DCC_DependencyCheckOutputName>S:\Bin\%Configuration%\d11\DelphiProjectManager.exe</DCC_DependencyCheckOutputName>
+    <DCC_DependencyCheckOutputName>S:\Bin\Debug\d11\DelphiProjectManager.exe</DCC_DependencyCheckOutputName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Version>7.0</Version>
@@ -15,10 +16,10 @@
     <DCC_WriteableConstants>True</DCC_WriteableConstants>
     <DCC_LocalDebugSymbols>False</DCC_LocalDebugSymbols>
     <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
-    <DCC_ExeOutput>..\..\Bin\$(Configuration)\d11</DCC_ExeOutput>
-    <DCC_DcuOutput>..\..\Lib\$(Configuration)\d11</DCC_DcuOutput>
-    <DCC_ObjOutput>..\..\Lib\$(Configuration)\d11</DCC_ObjOutput>
-    <DCC_HppOutput>..\..\Lib\$(Configuration)\d11</DCC_HppOutput>
+    <DCC_ExeOutput>..\..\Bin\Release\d11</DCC_ExeOutput>
+    <DCC_DcuOutput>..\..\Lib\Release\d11</DCC_DcuOutput>
+    <DCC_ObjOutput>..\..\Lib\Release\d11</DCC_ObjOutput>
+    <DCC_HppOutput>..\..\Lib\Release\d11</DCC_HppOutput>
     <DCC_Define>RELEASE</DCC_Define>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -27,10 +28,10 @@
     <DCC_AssertionsAtRuntime>False</DCC_AssertionsAtRuntime>
     <DCC_WriteableConstants>True</DCC_WriteableConstants>
     <DCC_SymbolReferenceInfo>2</DCC_SymbolReferenceInfo>
-    <DCC_ExeOutput>..\..\Bin\$(Configuration)\d11</DCC_ExeOutput>
-    <DCC_DcuOutput>..\..\Lib\$(Configuration)\d11</DCC_DcuOutput>
-    <DCC_ObjOutput>..\..\Lib\$(Configuration)\d11</DCC_ObjOutput>
-    <DCC_HppOutput>..\..\Lib\$(Configuration)\d11</DCC_HppOutput>
+    <DCC_ExeOutput>..\..\Bin\Debug\d11</DCC_ExeOutput>
+    <DCC_DcuOutput>..\..\Lib\Debug\d11</DCC_DcuOutput>
+    <DCC_ObjOutput>..\..\Lib\Debug\d11</DCC_ObjOutput>
+    <DCC_HppOutput>..\..\Lib\Debug\d11</DCC_HppOutput>
     <DCC_Define>DEBUG</DCC_Define>
     <DCC_Optimize>False</DCC_Optimize>
   </PropertyGroup>

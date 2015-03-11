@@ -1042,7 +1042,11 @@ end;
 
 function TfdpmMainForm.AbreRegistroPathDelphi (rRegistroDelphi: TRegistry): boolean;
 begin
-  rRegistroDelphi.RootKey := HKEY_LOCAL_MACHINE;
+  if (cdsProjects.fieldByName ('cdVersao').asInteger < 11) then
+    rRegistroDelphi.RootKey := HKEY_LOCAL_MACHINE
+  else
+    rRegistroDelphi.RootKey := HKEY_CURRENT_USER;
+
   result := rRegistroDelphi.OpenKey (descobrePath, false);
 end;
 
@@ -1118,7 +1122,10 @@ begin
   try
     if AbreRegistroPathDelphi (regPathDelphi) then
     begin
-      sPathDelphi := ExtractFilePath (regPathDelphi.ReadString (''));
+      if (cdsProjects.fieldByName ('cdVersao').asInteger < 11) then
+        sPathDelphi := ExtractFilePath (regPathDelphi.ReadString (''))
+      else
+        sPathDelphi := ExtractFilePath (regPathDelphi.ReadString ('App'));
       strDelete (sPathDelphi, '\', tpFim, '');
       regPathDelphi.WriteString ('Path', sPathDelphi)
     end;
@@ -1317,6 +1324,12 @@ var
   oReg: TRegistry;
 
 begin
+  if not(cbAutoStart.Checked) then
+  begin
+    result := True;
+    Exit;
+  end;
+  
   bDirExists := DirectoryExists(pDiretorio);
   pDiretorio := '"' + pDiretorio + '"';
   //--

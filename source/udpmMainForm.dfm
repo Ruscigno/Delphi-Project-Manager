@@ -519,7 +519,7 @@ object fdpmMainForm: TfdpmMainForm
       Top = 0
       Width = 530
       Height = 197
-      ActivePage = tsPathBPL
+      ActivePage = tsConfiguracao
       Align = alClient
       Constraints.MinHeight = 100
       TabOrder = 0
