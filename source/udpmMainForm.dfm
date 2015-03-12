@@ -1,6 +1,6 @@
 object fdpmMainForm: TfdpmMainForm
-  Left = 373
-  Top = 198
+  Left = 670
+  Top = 356
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Delphi Project Manager'
@@ -29,7 +29,6 @@ object fdpmMainForm: TfdpmMainForm
     Height = 3
     Cursor = crVSplit
     Align = alTop
-    ExplicitWidth = 528
   end
   object Panel1: TPanel
     Left = 0
@@ -519,7 +518,7 @@ object fdpmMainForm: TfdpmMainForm
       Top = 0
       Width = 530
       Height = 197
-      ActivePage = tsConfiguracao
+      ActivePage = tsPathBPL
       Align = alClient
       Constraints.MinHeight = 100
       TabOrder = 0
